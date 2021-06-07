@@ -1,0 +1,24 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 1024px;
+  height: 768px;
+
+}
+
+.menu {
+  text-align: center;
+  flex-direction: row;
+  background-color: #e8e8e8;
+  flex: 1;
+  border-right: #81b3ff solid 2px;
+}
+
+.contenido {
+  flex: 4;
+
+}
+.default {
+  background-color: deepskyblue;
+}
