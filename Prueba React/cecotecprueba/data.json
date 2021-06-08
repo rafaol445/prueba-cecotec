@@ -1,0 +1,8 @@
+{
+    "Users": [
+      {  "email": "rol19991@gmail.com", "password": "password" }
+    ],
+    "Products": [
+      { "name": "conga", "description": "robot aspirador","price": 60  }
+    ]
+  }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from "axios";
 import './App.css';
 import {NavLink, Route, Switch} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
@@ -7,11 +8,45 @@ import {Button} from "primereact/button";
 import {Users} from './components/users';
 import { Products } from './components/products';
 
+const urlUsers = "http://localhost:3000/Users"
+
 const App = () => {
 
   const [loged, setloged] = useState(false);
   const [user, setuser] = useState("");
   const [password, setpassword] = useState("");
+
+  const checkLogin = async () => {
+
+    if (user.length === 0 || password.length === 0) {
+      alert("Introduce datos validos");
+    }else {
+      let emailBack;
+      let passwordBack;
+    
+    await axios.get(urlUsers + "?email=" + user).then((respuesta) => {
+      emailBack = respuesta.data[0].email;       
+      passwordBack = respuesta.data[0].password;
+                
+  }).catch(e => {
+      console.log("Error de conexion");
+  });
+
+  if (user === emailBack && password === passwordBack) {
+    setloged(true);    
+  }else {
+    alert("email o password incorrectos");
+  }
+
+  }
+
+
+    
+  
+    
+    
+    
+  }
 
 
   return (
@@ -22,7 +57,7 @@ const App = () => {
           <div><NavLink to={'/users'} activeClassName={'default'}>Users</NavLink></div>
           <br/>
           <div><NavLink to={'/products'} activeClassName={'default'}>Products</NavLink></div>
-          <br/></> : <p>login</p> }
+          <br/></> : null }
           
 
         </div>
@@ -32,25 +67,20 @@ const App = () => {
                             <br/>
             <Password style={{marginTop: 10}} name="password" placeholder={"Password"}
                                       onChange={(e) => setpassword(e.currentTarget.value)}/>
-            <Button label="Login" icon="pi pi-check" onClick={() => {alert("loged"); setloged(true) }} autoFocus/>
+            <Button label="Login" icon="pi pi-check" onClick={() => checkLogin()} autoFocus/>
         </div> : null}
         
 
           <Switch>            
             <Route path={'/users'}>
-              <Users></Users>
+              {loged ? <Users></Users> : null }              
             </Route>
             <Route path={'/products'}>
-              <Products></Products>
+              {loged ? <Products></Products> : null}
+              
             </Route>
-
           </Switch>
         </div>
-          
-
-
-
-
       </div>
   );
 }
