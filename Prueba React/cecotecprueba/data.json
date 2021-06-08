@@ -1,8 +1,70 @@
 {
-    "Users": [
-      {  "email": "rol19991@gmail.com", "password": "password" }
-    ],
-    "Products": [
-      { "name": "conga", "description": "robot aspirador","price": 60  }
-    ]
-  }
+  "Users": [
+    {
+      "email": "prueba1@gmail.com",
+      "password": "password"
+    },
+    {
+      "email": "prueba2@gmail.com",
+      "password": "password"
+    },
+    {
+      "email": "prueba3@gmail.com",
+      "password": "password"
+    },
+    {
+      "email": "prueba4@gmail.com",
+      "password": "password"
+    }
+  ],
+  "Products": [
+    {
+      "id": "1",
+      "name": "air fraier",
+      "description": "freidoria de aire",
+      "price": "60"
+    },
+    {
+      "id": "2",
+      "name": "conga",
+      "description": "robot aspirador",
+      "price": 60
+    },
+    {
+      "id": "3",
+      "name": "conga",
+      "description": "robot aspirador",
+      "price": 60
+    },
+    {
+      "id": "4",
+      "name": "conga",
+      "description": "robot aspirador",
+      "price": 60
+    },
+    {
+      "id": "5",
+      "name": "conga",
+      "description": "robot aspirador",
+      "price": 60
+    },
+    {
+      "id": "6",
+      "name": "conga",
+      "description": "robot aspirador",
+      "price": 60
+    },
+    {
+      "id": "7",
+      "name": "tostadora",
+      "description": "para tostar",
+      "price": 80
+    },
+    {
+      "id": "8",
+      "name": "teclado",
+      "description": "freidoria de aire",
+      "price": "60"
+    }
+  ]
+}

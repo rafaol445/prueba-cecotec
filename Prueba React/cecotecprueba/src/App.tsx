@@ -5,14 +5,14 @@ import {NavLink, Route, Switch} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
 import {Password} from "primereact/password";
 import {Button} from "primereact/button";
-import {Users} from './components/users';
-import { Products } from './components/products';
+import {Users} from './components/users/users';
+import { Products } from './components/product/products';
 
 const urlUsers = "http://localhost:3000/Users"
 
 const App = () => {
 
-  const [loged, setloged] = useState(false);
+  const [loged, setloged] = useState(true);
   const [user, setuser] = useState("");
   const [password, setpassword] = useState("");
 
@@ -39,13 +39,6 @@ const App = () => {
   }
 
   }
-
-
-    
-  
-    
-    
-    
   }
 
 
