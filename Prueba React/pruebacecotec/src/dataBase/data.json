@@ -1,8 +1,0 @@
-{
-  "Users": [
-    { "id": 1, "username": "rol19991@gmail.com", "password": "password" }
-  ],
-  "Products": [
-    { "id": 1, "name": "conga", "description": "robot aspirador","price": 60  }
-  ]
-}
