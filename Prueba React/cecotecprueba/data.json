@@ -1,19 +1,28 @@
 {
   "Users": [
     {
-      "email": "prueba1@gmail.com",
+      "id": "prueba1@gmail.com",
+      "name": "nombre",
       "password": "password"
     },
     {
-      "email": "prueba2@gmail.com",
+      "id": "prueba2@gmail.com",
+      "name": "nombre",
       "password": "password"
     },
     {
-      "email": "prueba3@gmail.com",
+      "id": "prueba3@gmail.com",
+      "name": "nombre",
       "password": "password"
     },
     {
-      "email": "prueba4@gmail.com",
+      "id": "prueba4@gmail.com",
+      "name": "nombre",
+      "password": "password"
+    },
+    {
+      "id": "prueba5@gmail.com",
+      "name": "nombre2",
       "password": "password"
     }
   ],
@@ -62,9 +71,9 @@
     },
     {
       "id": "8",
-      "name": "teclado",
-      "description": "freidoria de aire",
-      "price": "60"
+      "name": "batidora",
+      "description": "para triturar",
+      "price": "12"
     }
   ]
 }

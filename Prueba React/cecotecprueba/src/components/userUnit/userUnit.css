@@ -1,0 +1,17 @@
+.cardProduct {
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px rgb(97, 97, 97) solid;
+}
+.separator {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.buttonDelete {
+    border-radius: 30px;
+    background-color: rgb(238, 55, 49);
+    height: 40px;
+    border: 2px black solid;
+}

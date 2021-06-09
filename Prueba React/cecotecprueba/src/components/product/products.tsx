@@ -3,51 +3,42 @@ import axios from "axios";
 import { IProduct } from '../../interfaces/IProduct';
 import { ProductUnit } from '../productUnit/productUnit';
 import "./product.css";
-
-
 const urlProducts = "http://localhost:3000/Products";
 
 
 export const Products = () => {
 
-
     const [products, setproducts] = useState<IProduct[]>([]);
     const [id, setid] = useState("");
     const [name, setname] = useState("");
     const [description, setdescription] = useState("");
-    const [price, setprice] = useState("");
-
-
-    useEffect(() => {
-        getProducts(urlProducts);
-
-    }, []);
+    const [price, setprice] = useState("");    
 
     const updateProduct = () => {
-
         
         const product : IProduct = {id, name, description, price}
         JSON.stringify(product)
         axios.put( urlProducts + '/' + id , product ).then((response) => {
-            console.log(response.data);
+            alert("Actualizado")
         }, (error) => {
             console.log(error);
         });
         getProducts(urlProducts);
+        cleanInputs();
     }
+
     const postProduct = () => {
         
         const product : IProduct = {id, name, description, price}
         JSON.stringify(product)
         axios.post( urlProducts , product ).then((response) => {
-            console.log(response.data);
+            alert("Alta Correcta")
         }, (error) => {
             console.log(error);
         });
         getProducts(urlProducts);
-    }
-    
-
+        cleanInputs();
+    }    
 
     const getProducts = async (url: string) => {
 
@@ -56,13 +47,21 @@ export const Products = () => {
         }).catch(e => {
             console.log("Error de conexion con la API");
         });
-
-
-
     }
 
-    return (
-        <>
+    const cleanInputs = () => {
+        setname("");
+        setid("");
+        setdescription("");
+        setprice("");
+    }
+
+    useEffect(() => {
+        getProducts(urlProducts);
+
+    }, []);
+
+    return (        
             <div className={"generalContainer"}>
                 <div className={"header"}>
                     <div className={"separator"}>
@@ -78,39 +77,32 @@ export const Products = () => {
                         <p>Price</p>
                     </div>
                     <div className={"separator"}>
-                        <button className={"button"} onClick={() => getProducts(urlProducts)}>Refresh</button>
+                        <button className={"buttonRefresh"} onClick={() => getProducts(urlProducts)}>Refresh</button>
                     </div>
                 </div>
                 <div className={"header"}>
                     <div className={"separator"}>
-                        <input placeholder={"Id"} onChange={(e) => setid(e.currentTarget.value)}></input>
+                        <input placeholder={"Id"} value={id} onChange={(e) => setid(e.currentTarget.value)}></input>
                     </div>
                     <div className={"separator"}>
-                        <input placeholder={"Nombre"} onChange={(e) => setname(e.currentTarget.value)}></input>
+                        <input placeholder={"Nombre"} value={name} onChange={(e) => setname(e.currentTarget.value)}></input>
                     </div>
                     <div className={"separator"}>
-                        <input placeholder={"Description"} onChange={(e) => setdescription(e.currentTarget.value)}></input>
+                        <input placeholder={"Description"} value={description} onChange={(e) => setdescription(e.currentTarget.value)}></input>
                     </div>
                     <div className={"separator"}>
-                        <input placeholder={"Price"} onChange={(e) => setprice(e.currentTarget.value)}></input>
+                        <input placeholder={"Price"} value={price} onChange={(e) => setprice(e.currentTarget.value)}></input>
                     </div>
                     <div className={"separator"}>
-                        <button onClick={() => postProduct()}>Crear</button>
-                        <button onClick={() => updateProduct()}>Actualizar</button>
+                        <button className={"buttonCreate"} onClick={() => postProduct()}>Crear</button>
+                        <button className={"buttonCreate"} onClick={() => updateProduct()}>Actualizar</button>
                     </div>
-
                 </div>
                 <div className={"listContainer"}>
                     {products.map((item, index) => <ProductUnit  {...item} key={index}></ProductUnit>)}
                 </div>
-
-
-            </div>
-
-
-        </>
+            </div>        
     );
-
 }
 
 

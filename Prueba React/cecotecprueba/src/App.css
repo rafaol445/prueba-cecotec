@@ -15,11 +15,21 @@
 }
 
 .contenido {
-  flex: 4;
+  flex: 4;  
+  padding: 30px;
 
 }
 .default {
   background-color: deepskyblue;
+}
+
+.buttonLogin {
+  margin-top: 10px;
+  border-radius: 30px;
+  width: 10%;
+  background-color: rgb(0, 140, 255);
+  height: 40px;
+  border: 2px black solid;
 }
 
 
